@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Cat Fact & Photo</title>
+    <style>
+        body { font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; text-align: center; background-color: #f0f2f5; padding-top: 50px; }
+        .card { background: white; padding: 30px; border-radius: 15px; box-shadow: 0 4px 8px rgba(0,0,0,0.1); display: inline-block; max-width: 500px; }
+        img { width: 100%; border-radius: 10px; margin-bottom: 20px; height: auto; max-height: 400px; object-fit: cover; }
+        button { background-color: #ff4757; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; font-size: 16px; }
+        button:hover { background-color: #ff6b81; }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>🐱 Random Cat</h1>
+        <img src="{{ image }}" alt="Cute Cat">
+        <p><i>"{{ fact }}"</i></p>
+        <br>
+        <button onclick="window.location.reload();">Next Cat!</button>
+    </div>
+</body>
+</html>
