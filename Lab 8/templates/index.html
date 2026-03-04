@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>NASA APOD</title>
+    <style>
+        body { background: #1a1a1a; color: white; font-family: sans-serif; text-align: center; }
+        .box { border: 2px solid #333; padding: 20px; margin: 20px auto; max-width: 700px; border-radius: 15px; }
+        img { width: 100%; border-radius: 10px; }
+    </style>
+</head>
+<body>
+    <h1>🚀 NASA Space App</h1>
+    <div class="box">
+        <h2>{{ t }}</h2>  <p>Date: {{ d }}</p>
+        <img src="{{ img }}" alt="NASA Image"> <p style="text-align: justify;">{{ desc }}</p> </div>
+</body>
+</html>
