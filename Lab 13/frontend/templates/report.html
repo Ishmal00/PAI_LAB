@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <title>Meeting Report #{{ report.id }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+<body class="bg-gray-50 p-6 min-h-screen">
+    <div class="max-w-5xl mx-auto">
+        <!-- Top Navigation -->
+        <div class="flex justify-between items-center mb-8">
+            <a href="/" class="btn btn-ghost gap-2">← Back to Dashboard</a>
+            <button onclick="window.print()" class="btn btn-primary px-8">Download PDF</button>
+        </div>
+
+        <!-- Main Report -->
+        <div class="bg-white rounded-3xl shadow-xl overflow-hidden border border-gray-100">
+            <!-- Header Banner -->
+            <div class="bg-indigo-600 p-10 text-white">
+                <div class="flex flex-wrap gap-2 mb-4">
+                    <span class="badge badge-outline border-white text-white">Sentiment: {{ report.sentiment }}</span>
+                    <span class="badge badge-outline border-white text-white">Est. Duration: {{ report.duration }}</span>
+                </div>
+                <h1 class="text-4xl font-black">Meeting Analysis Report</h1>
+            </div>
+
+            <div class="p-10 space-y-10">
+                <!-- Summary Section -->
+                <section>
+                    <h3 class="text-xl font-bold border-b pb-2 mb-4 text-indigo-700">Executive Summary</h3>
+                    <p class="text-gray-700 leading-relaxed text-lg">{{ report.summary }}</p>
+                </section>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-10">
+                    <!-- Participants -->
+                    <section>
+                        <h4 class="font-bold mb-4 flex items-center gap-2">👥 Participants</h4>
+                        <div class="flex flex-wrap gap-2">
+                            {% for p in report.participants %}
+                                <span class="badge badge-lg bg-indigo-50 text-indigo-700 border-none px-4">{{ p }}</span>
+                            {% endfor %}
+                            {% if not report.participants %}<span class="text-gray-400 italic">None detected</span>{% endif %}
+                        </div>
+                    </section>
+
+                    <!-- Decisions -->
+                    <section>
+                        <h4 class="font-bold mb-4 flex items-center gap-2 text-green-600">✅ Key Decisions</h4>
+                        <ul class="space-y-2">
+                            {% for d in report.decisions %}
+                                <li class="p-3 bg-green-50 rounded-xl text-sm border-l-4 border-green-500 italic">{{ d }}</li>
+                            {% endfor %}
+                        </ul>
+                    </section>
+                </div>
+
+                <!-- Tasks Table -->
+                <section>
+                    <h3 class="text-xl font-bold mb-6 text-indigo-700">📌 Action Items & Assignments</h3>
+                    <div class="overflow-x-auto rounded-2xl border border-gray-100">
+                        <table class="table table-zebra w-full">
+                            <thead class="bg-gray-50">
+                                <tr>
+                                    <th>Task Description</th>
+                                    <th>Assignee</th>
+                                    <th>Priority</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for item in report.action_items %}
+                                <tr>
+                                    <td class="font-medium max-w-md">{{ item.task }}</td>
+                                    <td><span class="badge badge-ghost">{{ item.assignee }}</span></td>
+                                    <td>
+                                        <span class="badge {{ 'badge-error' if item.priority == 'High' else 'badge-warning' if item.priority == 'Medium' else 'badge-success' }}">
+                                            {{ item.priority }}
+                                        </span>
+                                    </td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+                </section>
+
+                <!-- Questions -->
+                <section class="bg-amber-50 p-6 rounded-2xl">
+                    <h4 class="font-bold mb-4 text-amber-700">❓ Questions Raised</h4>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        {% for q in report.questions %}
+                            <p class="text-sm bg-white p-3 rounded-lg shadow-sm border-l-2 border-amber-400">"{{ q }}"</p>
+                        {% endfor %}
+                    </div>
+                </section>
+            </div>
+        </div>
+        
+        <footer class="mt-8 text-center text-gray-400 text-sm pb-10">
+            Report generated via AI Meeting Pipeline v2.0
+        </footer>
+    </div>
+</body>
+</html>

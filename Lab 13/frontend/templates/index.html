@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AI Meeting Assistant | Dashboard</title>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.7.2/dist/full.min.css" rel="stylesheet" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body class="p-4 md:p-8 bg-slate-900 min-h-screen">
+    <div class="max-w-6xl mx-auto">
+        <header class="mb-10 flex justify-between items-center text-white">
+            <div>
+                <h1 class="text-4xl font-black italic">AI ASSISTANT.</h1>
+                <p class="opacity-70">Intelligent NLP Pipeline</p>
+            </div>
+            <a href="/delete_history" class="btn btn-error btn-sm">Clear All History</a>
+        </header>
+
+        <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <!-- New Analysis Section -->
+            <div class="lg:col-span-2">
+                <div class="bg-white rounded-3xl p-8 shadow-2xl">
+                    <h2 class="text-2xl font-bold mb-6">Analyze New Meeting</h2>
+                    
+                    <div class="space-y-4">
+                        <textarea id="transcript" class="textarea textarea-bordered w-full h-64 text-lg" placeholder="Paste your meeting transcript here..."></textarea>
+                        
+                        <div class="divider text-gray-400 text-sm">OR UPLOAD FILE</div>
+                        
+                        <div class="flex flex-col md:flex-row gap-4">
+                            <input type="file" id="fileInput" class="file-input file-input-bordered w-full" />
+                            <button onclick="startAnalysis()" id="mainBtn" class="btn btn-primary px-10 text-lg">Process Magic ✨</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- History Sidebar -->
+            <div class="lg:col-span-1">
+                <div class="bg-white/10 backdrop-blur-md rounded-3xl p-6 text-white border border-white/20 h-full">
+                    <h3 class="text-xl font-bold mb-6">Recent Reports</h3>
+                    <div class="space-y-4 max-h-[500px] overflow-y-auto">
+                        {% if not history %}
+                            <p class="text-sm opacity-50 italic">No previous sessions found.</p>
+                        {% endif %}
+                        {% for item in history | reverse %}
+                        <div class="p-4 bg-white/5 rounded-2xl hover:bg-white/10 transition border border-white/5">
+                            <div class="flex justify-between items-start mb-2">
+                                <span class="badge badge-sm badge-secondary">ID #{{ item.id }}</span>
+                                <span class="text-[10px] opacity-50">{{ item.duration }}</span>
+                            </div>
+                            <p class="text-xs line-clamp-2 mb-3 opacity-80">{{ item.summary }}</p>
+                            <a href="/report/{{ item.id }}" class="btn btn-xs btn-block btn-outline border-white/20 text-white">View Full Report</a>
+                        </div>
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        async function startAnalysis() {
+            const btn = document.getElementById('mainBtn');
+            const transcript = document.getElementById('transcript').value;
+            const fileInput = document.getElementById('fileInput');
+            
+            btn.innerHTML = '<span class="loading loading-spinner"></span> Analyzing...';
+            btn.disabled = true;
+
+            const formData = new FormData();
+            if (fileInput.files[0]) {
+                formData.append('file', fileInput.files[0]);
+            } else if (transcript.trim() !== "") {
+                formData.append('transcript', transcript);
+            } else {
+                alert("Please paste text or upload a file!");
+                btn.innerHTML = 'Process Magic ✨';
+                btn.disabled = false;
+                return;
+            }
+
+            try {
+                // Since FormData is sent, we let the browser set Content-Type
+                const response = await fetch('/analyze', {
+                    method: 'POST',
+                    body: fileInput.files[0] ? formData : JSON.stringify({transcript: transcript}),
+                    headers: fileInput.files[0] ? {} : {'Content-Type': 'application/json'}
+                });
+                
+                const data = await response.json();
+                if (data.redirect) {
+                    window.location.href = data.redirect;
+                }
+            } catch (error) {
+                console.error("Error:", error);
+                btn.innerHTML = 'Process Magic ✨';
+                btn.disabled = false;
+            }
+        }
+    </script>
+</body>
+</html>

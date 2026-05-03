@@ -1,0 +1,236 @@
+{"intents":
+    [{
+        "Tag": "emergency",
+        "Patterns": ["Help", "Critical","emergency", "ER"],
+        "Response": "Call 1122 immediately."
+    },
+    {
+        "Tag": "greeting",
+        "Patterns": ["Hi", "Hello", "Hey"],
+        "Response": "Hello! How can I assist you today?"
+    },
+    {
+        "Tag": "goodbye",
+        "Patterns": ["Bye", "Goodbye", "See you later"],
+        "Response": "Goodbye! Have a great day!"
+    },
+    {
+        "Tag": "thanks",
+        "Patterns": ["Thanks", "Thank you", "That's helpful"],
+        "Response": "You're welcome! If you have any more questions, feel free to ask."
+    },
+    {
+        "Tag": "noanswer",
+        "Patterns": [],
+        "Response": "Sorry, I can't understand you. Can you please rephrase?"
+    },
+
+        {
+            "Tag": "options",
+            "Patterns": ["What can you do?", "How can you help?", "What services do you offer?"],
+            "Response": "I can assist you with emergency information, provide general assistance, and answer your questions. Just ask!"
+        },
+
+        {
+            "Tag": "rooms",
+            "Patterns": ["Beds", "Availability", "Vacant"],
+            "Response": "Checking current bed count..."
+        },
+        {
+            "Tag": "doctors",
+            "Patterns": ["Doctors", "Specialists", "Consultants"],
+            "Response": "Checking current doctor availability..."
+        
+        },
+        {
+            "Tag": "ambulance",
+            "Patterns": ["Ambulance", "Emergency transport", "Need an ambulance"],
+            "Response": "Calling 1122 for emergency transport..."
+        },
+        {
+            "Tag": "pharmacy",
+            "Patterns": ["Pharmacy", "Medicines", "Drugs"],
+            "Response": "Checking current pharmacy stock..."
+        },
+        {
+            "Tag": "contact",
+            "Patterns": ["Contact", "Phone number", "Address"],
+            "Response": "You can contact us at 123-456-7890 or visit us at 123 Main Street."
+        },
+        {
+            "Tag": "hours",
+            "Patterns": ["Hours", "Opening times", "When are you open?"],
+            "Response": "We are open 24/7 for emergencies. For non-emergency services, we are open from 8 AM to 8 PM."
+        },
+        {
+            "Tag": "services",
+            "Patterns": ["Services", "What do you offer?", "What can you do?"],
+            "Response": "We offer emergency care, general consultations, specialist appointments, and pharmacy services."
+        },
+        {
+            "Tag": "insurance",
+            "Patterns": ["Insurance", "Do you accept insurance?", "What insurance do you accept?"],
+            "Response": "We accept most major insurance providers. Please contact our billing department for specific inquiries."
+        },
+        {
+            "Tag": "appointments",
+            "Patterns": ["Appointments", "Book an appointment", "Schedule a visit"],
+            "Response": "You can book an appointment by calling our reception at 123-456-7890 or through our online portal."
+        },
+        {
+            "Tag": "covid",
+            "Patterns": ["COVID-19", "Coronavirus", "Pandemic"],
+            "Response": "We are following all COVID-19 safety protocols. Please wear a mask and maintain social distancing when visiting."
+        },
+        {
+            "Tag": "billing",
+            "Patterns": ["Billing", "Payment", "Invoice"],
+            "Response": "For billing inquiries, please contact our billing department at 123-456-7890 or email"},
+      
+        {
+            "Tag": "directions",
+            "Patterns": ["Directions", "How to get there?", "Location"],
+            "Response": "We are located at 123 Main Street. You can use GPS or public transportation to reach us."
+        },
+        {
+            "Tag": "feedback",
+            "Patterns": ["Feedback", "Complaints", "Suggestions"],
+            "Response": "We value your feedback! Please contact our customer service at 123-456-7890 or email us with your suggestions."
+        },
+        {
+            "Tag": "emergency_services",
+            "Patterns": ["Emergency services", "What to do in an emergency?", "Emergency procedures"],
+            "Response": "In case of an emergency, please call 1122 immediately. Our team will be there to assist you."
+        },
+        {
+            "Tag": "health_tips",
+            "Patterns": ["Health tips", "How to stay healthy?", "Wellness advice"],
+            "Response": "To stay healthy, maintain a balanced diet, exercise regularly, get enough sleep, and stay hydrated."
+        },
+        {
+            "Tag": "mental_health",
+            "Patterns": ["Mental health", "Stress relief", "Anxiety help"],
+            "Response": "If you're feeling stressed or anxious, consider talking to a mental health professional. You can also try relaxation techniques like deep breathing or meditation."
+        },
+        {
+            "Tag": "child_care",
+            "Patterns": ["Child care", "Pediatric services", "Children's health"],
+            "Response": "We offer pediatric services for children of all ages. Please contact our pediatric department for more information."
+        },
+        {
+            "Tag": "elderly_care",
+            "Patterns": ["Elderly care", "Geriatric services", "Senior health"],
+            "Response": "We provide geriatric services to support the health and well-being of our elderly patients. Please contact our geriatric department for more information."
+        },
+        {
+            "Tag": "nutrition",
+            "Patterns": ["Nutrition", "Diet advice", "Healthy eating"],
+            "Response": "For personalized nutrition advice, please consult with our dietitian. In general, a balanced diet includes a variety of fruits, vegetables, whole grains, and lean proteins."
+        },
+        {
+            "Tag": "exercise",
+            "Patterns": ["Exercise", "Fitness tips", "Workout advice"],
+            "Response": "Regular exercise is important for maintaining good health. Aim for at least 150 minutes of moderate-intensity exercise per week, such as brisk walking or cycling."
+        },
+        {
+            "Tag": "vaccinations",
+            "Patterns": ["Vaccinations", "Immunizations", "Vaccine schedule"],
+            "Response": "We offer a range of vaccinations for both children and adults. Please contact our immunization department for more information on vaccine schedules and availability."
+        },
+        {
+            "Tag": "chronic_conditions",
+            "Patterns": ["Chronic conditions", "Diabetes", "Hypertension"],
+            "Response": "We provide comprehensive care for chronic conditions such as diabetes and hypertension. Please contact our chronic care management team for more information."
+        },
+        {
+            "Tag": "allergies",
+            "Patterns": ["Allergies", "Allergic reactions", "Food allergies"],
+            "Response": "If you have allergies, please inform our staff during your visit. We can provide guidance on managing allergic reactions and offer allergy testing if needed."
+        },
+        {
+            "Tag": "medication",
+            "Patterns": ["Medication", "Prescriptions", "Drug information"],
+            "Response": "For medication inquiries, please consult with our pharmacy department. They can provide information on prescriptions, drug interactions, and medication management."
+        },
+        {
+            "Tag": "surgery",
+            "Patterns": ["Surgery", "Surgical procedures", "Operating room"],
+            "Response": "We offer a variety of surgical procedures. Please contact our surgical department for more information on available surgeries and scheduling."
+        },
+        {
+            "Tag": "rehabilitation",
+            "Patterns": ["Rehabilitation", "Physical therapy", "Recovery"],
+            "Response": "Our rehabilitation services include physical therapy, occupational therapy, and speech therapy to support your recovery. Please contact our rehab department for more information."
+        },
+        {
+            "Tag": "lab_services",
+            "Patterns": ["Lab services", "Blood tests", "Diagnostic tests"],
+            "Response": "We offer a range of lab services for diagnostic testing. Please contact our lab department for more information on available tests and scheduling."
+        },
+        {
+            "Tag": "imaging_services",
+            "Patterns": ["Imaging services", "X-rays", "MRI"],
+            "Response": "Our imaging services include X-rays, MRI, CT scans, and ultrasound. Please contact our imaging department for more information on available services and scheduling."
+        },
+        {
+            "Tag": "specialists",
+            "Patterns": ["Specialists", "Consultants", "Expert doctors"],
+            "Response": "We have a team of specialists in various fields. Please contact our specialist department for more information on available specialists and scheduling."
+        },
+        {
+            "Tag": "emergency_preparedness",
+            "Patterns": ["Emergency preparedness", "Disaster response", "Emergency plan"],
+            "Response": "We have an emergency preparedness plan in place to ensure the safety of our patients and staff. In case of a disaster, please follow the instructions provided by our emergency response team."
+        },
+        {
+            "Tag": "health_screening",
+            "Patterns": ["Health screening", "Preventive care", "Check-up"],
+            "Response": "We offer health screening services for preventive care. Please contact our screening department for more information on available screenings and scheduling."
+        },
+        {
+            "Tag": "telemedicine",
+            "Patterns": ["Telemedicine", "Virtual consultation", "Online doctor"],
+            "Response": "We offer telemedicine services for virtual consultations with our healthcare providers. Please contact our telemedicine department for more information on how to schedule a virtual appointment."
+        },
+        {
+            "Tag": "mental_health_support",
+            "Patterns": ["Mental health support", "Counseling", "Therapy"],
+            "Response": "We provide mental health support services, including counseling and therapy. Please contact our mental health department for more information on available services and scheduling."
+        },
+        {
+            "Tag": "health_education",
+            "Patterns": ["Health education", "Wellness programs", "Health workshops"],
+            "Response": "We offer health education programs and wellness workshops to promote healthy living. Please contact our health education department for more information on upcoming events and registration."
+        },
+        {
+            "Tag": "community_outreach",
+            "Patterns": ["Community outreach", "Health fairs", "Public health"],
+            "Response": "We are committed to community outreach and public health initiatives. Please contact our community outreach department for more information on upcoming events and how to get involved."
+        },
+        {
+            "Tag": "research",
+            "Patterns": ["Research", "Clinical trials", "Medical studies"],
+            "Response": "We are involved in medical research and clinical trials. Please contact our research department for more information on current studies and how to participate."
+        },
+        {
+            "Tag": "volunteer",
+            "Patterns": ["Volunteer", "Volunteering opportunities", "How to volunteer"],
+            "Response": "We welcome volunteers to support our mission. Please contact our volunteer department for more information on available opportunities and how to get involved."
+        },
+        {
+            "Tag": "donations",
+            "Patterns": ["Donations", "How to donate", "Support us"],
+            "Response": "Your support is greatly appreciated! Please contact our donations department for more information on how to contribute to our cause."
+        },
+        {
+            "Tag": "partnerships",
+            "Patterns": ["Partnerships", "Collaborations", "How to partner"],
+            "Response": "We are open to partnerships and collaborations. Please contact our partnerships department for more information on how to work together."
+        },
+        {
+            "Tag": "careers",
+            "Patterns": ["Careers", "Job opportunities", "How to apply"],
+            "Response": "We are always looking for talented individuals to join our team. Please contact our careers department for more information on current job openings and how to apply."
+        }
+]
+}
